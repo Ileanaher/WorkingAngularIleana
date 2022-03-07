@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-body">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" 
+            class="form-label">Nombre completo</label>
+            <input type="text"
+            id="nombre"
+            [formControl]="nombreFormControl"
+            class="form-control" 
+            placeholder="Nombre">
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" 
+            class="form-label" >Título</label>
+            <select [formControl]="tituloFormControl" class="form-select">
+                <option *ngFor="let titulo of titulos" 
+                value="{{titulo}}">{{titulo}}
+            </option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" 
+            class="form-label">Bio</label>
+            <textarea cols="30"
+            [formControl]="bioFormControl"
+            class="form-control"
+            rows="3"
+            ></textarea>
+        </div>
+        
+        <div class="mb-3">
+            <button type="button"
+            (click)="guardar()"
+            class="btn btn-success">Guardar</button>
+        </div>
+    </div>
+</div>

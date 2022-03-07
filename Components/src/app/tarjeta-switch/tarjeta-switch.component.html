@@ -1,0 +1,36 @@
+<!-- 
+<div class="card" *ngIf="nombre && titulo && bio; else contenidoOpcional"> -->
+    
+    <div [ngSwitch]="title">
+        <div *ngSwitchCase="'Ingeniera Sistemas'" class="card Ingeniera-Sistemas">
+        <h2>Tarjeta de presentación</h2>
+        <p>Nombre: {{nombre}}</p>
+        <p>Titulo: {{title}}</p>
+        <p>Bio: {{bio}}</p>
+        </div>
+        <div *ngSwitchCase="'Ingeniera Electronico'" class="card Ingeniera-Electronico">
+            <h2>Tarjeta de presentación</h2>
+            <p>Nombre: {{nombre}}</p>
+            <p>Titulo: {{title}}</p>
+            <p>Bio: {{bio}}</p>
+        </div>
+        <div *ngSwitchCase="'Ingeniera Civil'" class="card Ingeniera-Civil">
+                <h2>Tarjeta de presentación</h2>
+                <p>Nombre: {{nombre}}</p>
+                <p>Titulo: {{title}}</p>
+                <p>Bio: {{bio}}</p>
+        </div>
+        <div  *ngSwitchDefault class="card default">
+            <h2>Tarjeta de presentación</h2>
+            <p>Nombre: {{nombre}}</p>
+            <p>Titulo: {{title}}</p>
+            <p>Bio: {{bio}}</p>
+        </div>
+    </div>
+ 
+    <ng-template #contenidoOpcional>
+        <div class="card opcional">
+            <h2>No se proporcionó ninguna información</h2>
+        </div>
+    </ng-template>
+     

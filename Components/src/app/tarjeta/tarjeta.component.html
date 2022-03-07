@@ -1,8 +1,9 @@
-
-<div class="card" *ngIf="nombre && titulo && bio; else contenidoOpcional">
+<!-- 
+<div class="card" *ngIf="nombre && titulo && bio; else contenidoOpcional"> -->
+    <div class="card"  > 
     <h2>Tarjeta de presentación</h2>
     <p>Nombre: {{nombre}}</p>
-    <p>Titulo: {{titulo}}</p>
+    <p>Titulo: {{title}}</p>
     <p>Bio: {{bio}}</p>
 </div>
 <ng-template #contenidoOpcional>

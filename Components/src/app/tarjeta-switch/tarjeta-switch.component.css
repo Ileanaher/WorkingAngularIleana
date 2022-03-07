@@ -1,0 +1,53 @@
+.card {
+    border: 1px solid #B5A886;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 1px 6px 6px #ccc;
+    background-color: #FEE1C7;
+    color: #37515F;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    margin: 2rem 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* tarjeta para contenido opcional */
+.card.default {
+    min-height: 200px;
+    background-color: #C94277;
+    color: #fff;
+    
+}
+
+.card.Ingeniera-Sistemas {
+    min-height: 200px;
+    background-color: #F3C677;
+    color: #F9564F;
+  
+}
+.card.Ingeniera-Civil {
+    min-height: 200px;
+    background-color: #C6C8EE;
+    color: #FCFCFF;
+   
+}
+.card.Ingeniera-Electronico {
+    min-height: 200px;
+    background-color: #EFE9F4;
+    color: #16BAC5;
+     
+}
+.card.opcional {
+    min-height: 200px;
+    background-color: #A24936;
+    color: #83BCA9;
+}
+ 

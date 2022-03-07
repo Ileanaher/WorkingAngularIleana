@@ -9,7 +9,7 @@ export class TarjetaComponent implements OnInit {
 @Input()
 nombre: string='';
 @Input()
-titulo: string='';
+title: string='';
 @Input()
 bio: string='';
   constructor() { }
