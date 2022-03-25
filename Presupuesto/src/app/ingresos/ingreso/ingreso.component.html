@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col12">
+            <div class="card border-info mt-5">
+                <div class="card-body">
+                    <h3 class="card-title mb-3 ">Registro de Ingresos</h3>
+                    <form [formGroup]="this.iService.form">
+                        <div class="mb-3">
+                            <label  for="monto" >Monto</label>
+                            <input formControlName="monto" class="form-control"
+                            [ngClass]="this.iService.monto?.touched && this.iService.monto?.errors?'is-invalid':''"
+                            id="monto" type="number"  placeholder="0.00">
+                            <div *ngIf="this.iService.monto?.touched && this.iService.monto?.errors" class="invalid-feedback">Favor ingresar un monto válido
+                            <div *ngIf="!this.iService['monto']errors['min'] && this.iService['monto']errors['required']">Este campo es obligatorio.</div>
+                            <div *ngIf="this.iService['monto']errors['min'] && this.iService['monto']errors['required']">El monto debe ser mayor a 100.</div>
+                            </div>
+                    </div>
+                        <div class="mb-3">
+                            <label for="fecha" >Fecha</label>
+                            <input formControlName="fecha" class="form-control" 
+                            [ngClass]="this.iService.fecha?.touched && this.iService.fecha?.errors?'is-invalid':''" 
+                            id="fecha" type="date">
+                            <div *ngIf="this.iService.fecha?.touched && this.iService.fecha?.errors" class="invalid-feedback">Favor ingresar una fecha válida
+                            
+                            <div *ngIf=" this.iService['fecha']errors['required']">Este campo es obligatorio.</div>
+                        </div>
+                    </div>
+                        <div class="mb-3">
+                           <button (click)="AgregarIngreso()"   class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          
+ 
+ 
+            <div class="card border-info mt-5">
+                <div class="card-body">
+                    <h3 class="card-title mb-3 ">Listado de Ingresos</h3>
+                    <ol class="list-group list-group-numbered">
+                        <li *ngFor="let Tran of this.iService.ListadoIngresos" class="list-group-item d-flex justify-content-between align-items-start">
+                          <div class="ms-2 me-auto">
+                            <div class="fw-bold">{{Tran.type.description}}</div>
+                            {{Tran.date | date:'dd MMMM yyyy'}}
+                          </div>
+                          <span><button class="badge bg-primary rounded-pill">{{Tran.amount | currency}}</button></span>
+                          <span ><button class="badge bg-danger rounded-pill" (click)="EliminarIngreso(Tran)">Borrar</button></span>
+                        
+                        </li>
+                     
+                      </ol>
+                </div>
+            </div>
+ 
+
+        </div>
+    </div>
+</div>

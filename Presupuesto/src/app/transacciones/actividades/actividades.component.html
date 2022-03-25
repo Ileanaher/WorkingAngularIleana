@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col12">
+            <div class="card border-info mt-5">
+                <div class="card-body">
+                    <h3 class="card-title mb-3 justify-content-between">Registro de Transacciones</h3>
+
+                    <div  *ngIf="this.appService.transacciones else contenidoOpcional"> 
+                    <div class="container">
+                        <div class="row">
+                          <div class="col  bg-info">
+                            Tipo
+                          </div>
+                          <div class="col  bg-info">
+                            Fecha
+                          </div>
+                          <div class="col  bg-info">
+                            Monto
+                          </div>
+                        </div>
+                          <div *ngFor="let Tran of this.appService.transacciones" class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="row row-cols-auto">
+                            <div class="fw-bold">{{Tran.type.description}}</div>
+                            </div>
+                            <div class="row row-cols-auto">
+                                {{Tran.date | date:'dd MMMM yyyy'}}
+                            </div>
+                            <div class="row row-cols-auto">
+                                <span class="badge bg-primary rounded-pill">{{Tran.amount | currency}}</span>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <ng-template #contenidoOpcional>
+                  <div>No se ha realizado ninguna transacción
+                  </div>
+              </ng-template>
+             
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col12">
+            <div class="card border-info mt-5">
+                <div class="card-body">
+                    <h3 class="card-title mb-3 ">Registro de gastos</h3>
+                    <form [formGroup]="this.gservice.form">
+                        <div class="mb-3">
+                            <label  for="monto" >Monto</label>
+                            <input formControlName="monto" class="form-control"
+                            [ngClass]="this.gservice.monto?.touched && this.gservice.monto?.errors?'is-invalid':''"
+                            id="monto" type="number"  placeholder="0.00">
+                            <div *ngIf="this.gservice.monto?.touched && this.gservice.monto?.errors" class="invalid-feedback">Favor ingresar un monto válido
+                            <div *ngIf="!this.gservice['monto']errors['min'] && this.gservice['monto']errors['required']">Este campo es obligatorio.</div>
+                            <div *ngIf="this.gservice['monto']errors['min'] && this.gservice['monto']errors['required']">El monto debe ser mayor a 100.</div>
+                            </div>
+                    </div>
+                        <div class="mb-3">
+                            <label for="fecha" >Fecha</label>
+                            <input formControlName="fecha" class="form-control" 
+                            [ngClass]="this.gservice.fecha?.touched && this.gservice.fecha?.errors?'is-invalid':''" 
+                            id="fecha" type="date">
+                            <div *ngIf="this.gservice.fecha?.touched && this.gservice.fecha?.errors" class="invalid-feedback">Favor ingresar una fecha válida
+                            
+                            <div *ngIf=" this.gservice['fecha']errors['required']">Este campo es obligatorio.</div>
+                        </div>
+                    </div>
+                        <div class="mb-3">
+                           <button (click)="AgregarGasto()"   class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         
+ 
+            <div class="card border-info mt-5">
+                <div class="card-body">
+                    <h3 class="card-title mb-3 ">Listado de Gastos</h3>
+                    <ol class="list-group list-group-numbered">
+                        <li *ngFor="let Tran of this.gservice.ListadoGastos" class="list-group-item d-flex justify-content-between align-items-start">
+                          <div class="ms-2 me-auto">
+                            <div class="fw-bold">{{Tran.type.description}}</div>
+                            {{Tran.date | date:'dd MMMM yyyy'}} 
+                             
+                          </div>
+                        <span><button class="badge bg-primary rounded-pill">{{Tran.amount | currency}}</button></span>
+                        <span ><button class="badge bg-danger rounded-pill" (click)="EliminarGasto(Tran)">Borrar</button></span>
+                          
+                        </li>
+                     
+                      </ol>
+                </div>
+            </div>
+ 
+
+        </div>
+    </div>
+</div>
